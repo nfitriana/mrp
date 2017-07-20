@@ -1,50 +1,84 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+    $("#tglterimainv").datepicker({
+        dateFormat : "dd/mm/yy",
+        changeMonth : true,
+        changeYear : true
+    });
+  });
+</script>
+<div id="page-wrapper">
+	<div class="container-fluid">
+		 <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header">
+                            <i class="fa fa-fw fa-inbox"></i>  Edit Inventori Produk
+                        </h3>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-inbox"></i> <a href="">Edit Produk</a>
+                            </li>
+                            <li class="active">
+                                Edit Data Inventori
+                            </li>
+                        </ol>
+                    </div>
+                </div>
 
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-	<div class="row">
-		<div class="col-lg-12">
-			<h3 class="page-header">Data Inventori</h3>
-		</div>
-	</div><!--/.row-->
- 
-	<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-default">
-					<div class="panel-heading"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg>Tambah Inventori Bahan Baku</div>
-					<div class="panel-body">
-						<div class="col-md-6">
-							<form class="form-horizontal" action="" method="post">
+
+         <div class="row">
+         	<div class="col-lg-12">
+         		<div class="panel panel-default">
+         			<div class="panel-heading">
+                         <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Edit Data Inventori</h3>
+                    </div>
+                    <div class="panel-body">
+                    	<div class="col-md-8">
+                    		<form class="form-horizontal" action="" method="post">
 							<fieldset>
 							<?php
-								include "tambah-inventori-exe.php";
-								$idinv = $_GET['kdbahan'];           
-								
+								include "controlInventori.php";
 
-								#memanggil fungsi detail inventori
-								$detail = detailinventori($conn, $idinv);
+								if(isset($_GET['id'])){
+									$idinv = $_GET['id'];
+									$detailinv = detailinventori($conn, $idinv);
+								}
 								
 								if(isset($_POST['ubah'])){
-									$idinv 	= $_POST['kdbahan'];
-									$nm 	= $_POST['nmbahan'];
-									$jml 	= $_POST['jml'];
-									$st 	= $_POST['satuan'];
-									$tk 	= $_POST['tingkat'];
+									$kdproduk = $_POST['kdproduk'];
+									$nmproduk = $_POST['nmproduk'];
+									$jml 	  = $_POST['jml'];
+									$satuan   = $_POST['satuan'];
 
-									editinventori($conn, $idinv, $nm, $jml, $st, $tk);
+									function ubahformatTgl($tanggal){
+										$pisah = explode('/',$tanggal);
+										$urutan= array($pisah[2],$pisah[1],$pisah[0]);
+										$satukan= implode('-', $urutan);
+										return $satukan;
+									}
+
+										$tglterima = $_POST['tglterima'];
+										//menggunakan function ubahFormatTgl
+										$ubhtglterima = ubahformatTgl($tglterima);
+
+									//memanggil function editinventori
+									editinventori($conn, $kdproduk, $nmproduk, $jml, $satukan, $ubhtglterima);
 								}
 
 							?>
 								<div class="form-group">
-									<label class="col-md-4" "control-label" for="kodebahan">Kode Bahan</label>
+									<label class="col-md-4" "control-label" for="kodeproduk">Kode Produk</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" name="kdbahan">
+										<input type="text" class="form-control" name="kdproduk" value="<?php echo $detailinv[0]; ?>" readonly>
 									</div>
 									
 								</div>
 								
 								<div class="form-group">
-									<label class="col-md-4" "control-label" for="namabahan">Nama Bahan</label>
+									<label class="col-md-4" "control-label" for="namabahan">Nama Produk</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" name="nmbahan" placeholder="Masukkan Nama Bahan">
+										<input type="text" class="form-control" name="nmproduk" value="<?php echo $detailinv[1]; ?>">
 									</div>
 									
 								</div>
@@ -52,7 +86,7 @@
 								<div class="form-group">
 									<label class="col-md-4" "control-label" for="jumlah">Jumlah</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" name="jml" placeholder="Masukkan Jumlah">
+										<input type="text" class="form-control" name="jml" value="<?php echo $detailinv[2]; ?>">
 									</div>
 									
 								</div>
@@ -60,35 +94,31 @@
 								<div class="form-group">
 									<label class="col-md-4" "control-label" for="satuan">Satuan</label>
 									<div class="col-md-8">
-										<select class="form-control" name="satuan" id="level">
-											<option value="Meter">Meter</option>
-											<option value="Pcs">Pcs</option>
-										</select>
+										<input type="text" class="form-control" name="satuan" value="<?php echo $detailinv[3]; ?>">
 									</div>
 									
 								</div>
 
 								<div class="form-group">
-									<label class="col-md-4" "control-label" for="tingkat">Tingkat</label>
+									<label class="col-md-4" "control-label" for="tglditerima">Tanggal Diterima</label>
 									<div class="col-md-8">
-										<input type="text" name="tingkat" class="form-control" placeholder="Masukkan Tingkat">
+										<input type="text" name="tglterima" class="form-control" id="tglterimainv" value="<?php echo $detailinv[4]; ?>" readonly>
 									</div>
 								</div>
 
 								<div class="form-actions">
-									<button name="ubah" type="submit" class="btn btn-primary">Simpan</button>
+									<button name="ubah" type="submit" class="btn btn-primary">Ubah</button>
 									<button name="batal" type="reset" class="btn">Batal</button>
 								</div>
 
-							</fieldset>
-								
-								
-																
-								
+							</fieldset>	
 							</form>
-						</div><!-- col-md-6 -->
-					</div><!-- /.panel-body-->
-				</div><!-- /.panel panel-default-->
-			</div><!-- /.col-->
-		</div><!-- /.row -->
+                    	</div>
+                    </div>
+         		</div>
+         	</div>
+         </div>
+	</div>
 </div>
+ 
+	

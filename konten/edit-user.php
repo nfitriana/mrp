@@ -1,21 +1,25 @@
 
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-	<div class="row">
-		<div class="col-lg-12">
-			<h3 class="page-header">Data Pengguna</h3>
-		</div>
-	</div><!--/.row-->
+<!-- <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main"> -->
+			<!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header"><i class="fa fa-fw fa-user"></i>  Edit Data Pengguna</h3>
+                    </div>
+                </div>
+                <!-- /.row -->
 
 	<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg>Edit Data Pengguna</div>
+					<div class="panel-heading">
+						<h3 class="panel-title"><i class = "fa fa-fw fa-user"></i> Edit Data Pengguna</h3>
+					</div>
 					<div class="panel-body">
 						<div class="col-md-6">
 							<form class="form-horizontal" action="" method="post">
-							<fieldset>
+							<fieldset> 
 								<?php
-									include "tambah-user-exe.php";
+									include "controlUser.php";
 
 									if(isset($_GET['id']) && !empty($_GET['id'])){
 										$iduser = $_GET['id'];
@@ -46,7 +50,7 @@
 								<div class="form-group">
 									<label class="col-md-4" "control-label" for="ulangipassword">Ulangi Password</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" name="repsswd" placeholder="Ulangi Password" value="">
+										<input type="password" class="form-control" name="repsswd" placeholder="Ulangi Password" value="">
 									</div>
 									
 								</div>

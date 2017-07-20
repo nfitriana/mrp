@@ -1,7 +1,7 @@
 <?php
 	define("HOST", "localhost");
 	define("USER", "root");
-	define("DB", "dbmrp");
+	define("DB", "sistem_mrp");
 	define("PASS", "");
 
 	define("PATH","http://localhost/sistem-mrp/");

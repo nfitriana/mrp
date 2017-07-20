@@ -32,7 +32,7 @@
 										<form class="form-horizontal" action="" method="post">
 										<fieldset>
 											<?php
-												include "tambah-user-exe.php";
+												include "controlUser.php";
 
 												#memanggil fungsi adduser
 												adduser($conn); 
@@ -57,7 +57,7 @@
 											<div class="form-group">
 												<label class="col-md-4" "control-label" for="ulangipassword">Ulangi Password</label>
 												<div class="col-md-8">
-													<input type="text" class="form-control" name="repsswd" placeholder="Ulangi Password">
+													<input type="password" class="form-control" name="repsswd" placeholder="Ulangi Password">
 												</div>
 												
 											</div>

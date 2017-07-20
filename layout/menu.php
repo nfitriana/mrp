@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SISTEM INFORMASI MRP</a>
+                <a class="navbar-brand" href="index.html">SISTEM INFORMASI PERENCANAAN BAHAN BAKU PRODUKSI CV. ENIDA</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -61,24 +61,38 @@
                         <a href="<?php echo PATH;?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#pemesanan"><i class="fa fa-fw fa-shopping-cart"></i> Pemesanan <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#pemesanan"><i class="fa fa-fw fa-shopping-cart"></i> Penjualan <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="pemesanan" class="collapse">
                             <li>
-                                <a href=".?page=detail&content=purchase_order">Tambah Data Pemesan</a>
+                                <a href=".?page=detail&content=purchase_order">Tambah Data Penjualan</a>
                             </li>
                             <li>
-                                <a href=".?page=detail&content=daftar_purchase_order">Laporan Pemesanan</a>
+                                <a href=".?page=detail&content=daftar_purchase_order">Laporan Penjualan</a>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#forecast"><i class="fa fa-fw fa-shopping-cart"></i> Forecast <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="forecast" class="collapse">
+                            <li>
+                                <a href=".?page=detail&content=lap_forecast">Forcast Permintaan Produk</a>
+                            </li>
+                            <!--<li>
+                                <a href=".?page=detail&content=lap_forecast">Laporan Forecast</a>
+                            </li>-->
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#inventori"><i class="fa fa-fw fa-inbox"></i> Inventori <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="inventori" class="collapse">
                             <li>
-                                <a href=".?page=detail&content=tambah_inventori">Tambah Data Inventori</a>
+                                <a href=".?page=detail&content=data_produk">Data Produk</a>
                             </li>
                             <li>
-                                <a href=".?page=detail&content=daftar_inventori">Laporan Inventori</a>
+                                <a href=".?page=detail&content=data_komponen">Data Komponen</a>
+                            </li>
+                            <li>
+                                <a href=".?page=detail&content=data_bhnbaku">Data Bahan Baku</a>
                             </li>
                         </ul>
                     </li>
@@ -86,18 +100,19 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#bom"><i class="fa fa-fw fa-th"></i> Bill of Materials <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="bom" class="collapse">
                             <li>
-                                <a href=".?page=detail&content=bom">Tambah Data BOM</a>
+                                <a href=".?page=detail&content=detail_komponen">Komponen</a>
                             </li>
                             <li>
-                                <a href="#">Laporan BOM</a>
+                                <a href=".?page=detail&content=add_jmlbhnbaku">Bahan Baku</a>
                             </li>
+
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#jip"><i class="fa fa-fw fa-list-alt"></i> Jadwal Induk Produksi <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="jip" class="collapse">
                             <li>
-                                <a href="#">Tambah Data JIP</a>
+                                <a href=".?page=detail&content=jip">Tambah Data JIP</a>
                             </li>
                             <li>
                                 <a href="#">Laporan JIP</a>
@@ -115,17 +130,19 @@
                             </li>
                         </ul>
                     </li>
+
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#pengguna"><i class="fa fa-fw fa-user"></i> Data Pengguna <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#pengguna"><i class="fa fa-fw fa-user"></i> Data User <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="pengguna" class="collapse">
                             <li>
                                 <a href=".?page=detail&content=tambah_user">Tambah Data Pengguna</a>
                             </li>
                             <li>
-                                <a href=".?page=detail&content=daftar_user">Daftar Penggunam</a>
+                                <a href=".?page=detail&content=daftar_user">Daftar Pengguna</a>
                             </li>
                         </ul>
                     </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

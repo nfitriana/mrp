@@ -23,7 +23,11 @@
 }
 
 
-
+.btn-default {
+  color: #333;
+  background-color: #da4e4e;
+  border-color: #ccc;
+}
 
 
 

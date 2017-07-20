@@ -28,7 +28,7 @@
                             </div>
                             <div class="panel-body">
                                 <?php
-									include "tambah-pemesanan-exe.php";
+									include "controlPemesanan.php";
 									viewpesanan($conn);
 								?> 
                             </div><!-- panel-body -->

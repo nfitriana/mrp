@@ -26,7 +26,7 @@
                             </div>
                             <div class="panel-body">
                                 <?php
-									include "tambah-user-exe.php";
+									include "controlUser.php";
 									viewuser($conn);
 								?> 
                             </div><!-- panel-body -->
